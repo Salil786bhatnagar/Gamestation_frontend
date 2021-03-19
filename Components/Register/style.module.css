@@ -1,0 +1,39 @@
+.inputContainer{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #111;
+    transition: all 1s linear ;
+}
+
+/* .active, .btn:hover */
+
+.inputContainer:hover{
+    border-bottom: 2px solid #eee;
+}
+.inputContainer input{
+    width: 100%;
+    background: #000;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #fff;
+}
+.subscribe button{
+    background: #000;
+    border: none;
+    outline: none;
+    color: #eee;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+}
+.subscribe{
+    display: flex;
+}
+.subscribe:hover, .subscribe button:hover{
+    color: #8444bc;
+}

@@ -1,0 +1,39 @@
+.mainContainer{
+    width: 100%;
+    height: 588px;
+    background: #eaeaea;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   }
+.upperContainer{
+    width: 100%;
+    height: 220px;
+    line-height: 220px;
+    text-align: center;
+    background: #eaeaea;
+    color: #333;
+}
+.leftContainer{
+    width: 100%;
+    max-width: 586px;
+    height: 368px;
+    background: #eaeaea;
+}
+.rightContainer{
+    width: 100%;
+    max-width: 586px;
+    height: 368px;
+    background: #ffb5b5;
+    
+}
+
+.forSpacing{
+    color: #fff;
+    padding: 50
+}
+
+.liSpacing{
+    margin-bottom: 5px;
+    font-weight: 300;
+    color:#000;
+}

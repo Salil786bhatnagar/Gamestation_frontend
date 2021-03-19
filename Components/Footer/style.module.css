@@ -1,0 +1,43 @@
+.mainContainer{
+    width: 100%;
+    height: 588px;
+    background-image: url('https://ploogl.com/wp-content/uploads/2020/07/footer_6ba6095704f928b6d80db7325ec985d5.jpg');
+    /* background: #ecf0f1; */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    padding: 10%;
+
+    /* font-size: 24px */
+    
+}
+
+.linehight{
+    line-height: 50px;
+    list-style: none;
+}
+
+.itemSpacing{
+    margin: 50px 0 0 0;
+    font-size: 16px;
+}
+
+.emailInput{
+    border: none;
+    outline: none
+}
+
+.circlebtn{
+    border-radius: 50%;
+    background-color: black;
+    color: aliceblue;
+    padding: 8px 16px;
+    border: none;
+    margin: 15px;
+    font-size: 12px;
+    max-width: '400px';
+}
+
+.circlebtn:hover{
+    background-color:rebeccapurple;
+
+}
