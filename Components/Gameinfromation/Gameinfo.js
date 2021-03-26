@@ -35,6 +35,7 @@ export default function Gameinfo() {
             <div class="row">
                 <div class="col-md-12"> 
                  <div id="paper">   
+                 <p><h5 id="gamein_h5Id">Adding Fun to your Life</h5></p>
                   <div class="row">
                     <div class="col-md-6">
                       <div style={viewStyle.leftImgbackground}>   
@@ -54,17 +55,37 @@ export default function Gameinfo() {
                       <div>
                        <div class="row">
                          <div class="col-md-3">
-                         <Link href="/Rentmonth/Rent_month">
+                         {/* <Link href="/Rentmonth/Rent_month">
                           <Button variant="contained" id="rendmonth"><img src="images/calendar.png" class="calenderImg"/>
                          
                            <a>&nbsp;&nbsp;Rent For a Month</a>
                          
                           </Button>
-                          </Link>
+                          </Link> */}
+                         <div id="rentId"> 
+                           <Link href="/Rentmonth/Rent_month">
+                            <figure>
+                            <img src="images/rent_gameIcon.png" width="200px" height="100px" id="rentImgId" />
+                              <figcaption>
+                                 <h5 id="RentGameId">Rent Game</h5>
+                              </figcaption>
+                            </figure>
+                          </Link> 
+                          </div>   
                           </div>
-                        
+
                          <div class="col-md-3">
-                           <Button variant="contained" id="rendweek"><img src="images/shop.png" class="shopImg"/>&nbsp;&nbsp;Rent For a Week</Button>
+                           {/* <Button variant="contained" id="rendweek"><img src="images/shop.png" class="shopImg"/>&nbsp;&nbsp;Rent For a Week</Button> */}
+                          <div id="buygameId">
+                            <Link href="/Rentmonth/Rent_month">
+                              <figure>
+                              <img src="images/game_Buy.png" width="200px" height="100px" id="buyImgId"/>
+                                <figcaption>
+                                  <h5 id="BuyGameId">Buy Game</h5>
+                                </figcaption>
+                              </figure>
+                            </Link> 
+                          </div>  
                          </div>
                         </div>
                       </div>

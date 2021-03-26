@@ -57,7 +57,7 @@ export default function CheckOut() {
 
   const getOTPfunc = async () => {
 
-    // settimer(30);
+    settimer(30);
 
     setNext(true);
     setLoginOtp(true);
@@ -65,24 +65,24 @@ export default function CheckOut() {
     var otp = parseInt(Math.random() * 9999) + 1000;
     console.log('OTP', otp);
 
-    // let body = {phone:mobile}
-    // body.message = 'OTP : ' + otp ;
-    // // let body = { otp: otp, mob: props.location.state };
-    // let result = await postData("api/sendsms", body);
-    // if (result.status) {  
+    let body = {phone:mobile}
+    body.message = 'OTP : ' + otp ;
+    // let body = { otp: otp, mob: props.location.state };
+    let result = await postData("api/sendsms", body);
+    if (result.status) {  
 
-    //   alert("OTP :",otp);
-    //   setG_otp(otp);
-    // }
+      alert("OTP :",otp);
+      setG_otp(otp);
+    }
 
-    // var interval = setInterval(
-    //   () =>
-    //     settimer((prevstate) => (prevstate != 0 ? prevstate - 1 : prevstate)),
-    //   1000,
-    // );
-    // return () => {
-    //   clearInterval(interval);
-    // };
+    var interval = setInterval(
+      () =>
+        settimer((prevstate) => (prevstate != 0 ? prevstate - 1 : prevstate)),
+      1000,
+    );
+    return () => {
+      clearInterval(interval);
+    };
 
 
   };
@@ -91,7 +91,7 @@ export default function CheckOut() {
   const handleSubmit = async () => {
     var body = { phone: mobile }
     console.log({ body })
-    // if(G_otp == getOtp){
+    if(G_otp == getOtp){
 
     var list = await postData('userRegister/checklogin', body)
     console.log('.................', list)
@@ -106,6 +106,7 @@ export default function CheckOut() {
         // replace=({pathname:`/Monthplan/Address`})
         router.push('/Monthplan/Login_Register')
 
+
       }
       else if (list.message == 'User Already exist')
       {
@@ -114,13 +115,13 @@ export default function CheckOut() {
         router.push('/Monthplan/Payment_new')
       
       }
-      // }
+      }
 
 
     }
-    // else{
-    //   alert('Please Currect OPT...')
-    // }
+    else{
+      alert('Please Currect OPT...')
+    }
 
 
 

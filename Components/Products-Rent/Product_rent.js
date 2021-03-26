@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import Typography from '@material-ui/core/Typography';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import {getData, ServerURL} from '../../FetchServices';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,49 +31,59 @@ export default function Product_rent() {
     const classes = useStyles();
     var settings = {
       dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      initialSlide: 0,
+      infinite: true,
+      speed: 2000,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 2000
+
     }
 
+    const [getGame, setGame]=useState([])
+
+    useEffect(function(){
+      fetchproductgameList()
+    },[])
+
+
+     const fetchproductgameList=async()=>{
+       let list = await getData('game/display');
+       setGame(list);
+       console.log('listtttttttttttttttttttttttt',list);
+     }
+
+     const fetchlistData=()=>{
+       return(
+         getGame.map((item)=>{
+           return(
+             <div>
+             <  img src={`${ServerURL}/images/${item.poster}`} width="70%" height="70%" style={{objectFit:'contain'}}/>
+             </div>
+           )
+         })
+       )
+     }
+
     return (
-   <div>  
+   <div style={{ margin: 0, padding:0, width: '100%', overflow: 'hidden'}}>  
       <Typography variant="h6" component="h6" id="heading">
          Our Products on Rent
         </Typography>
       <div className={classes.mainContainer} style={{margin:'60px 80px'}}>
         <Slider {...settings}>
-        <div>
-        <img src="images/slide1.jpg" width="110%" height="110%"/>
-        </div>
-        <div>
-        <img src="images/slide2.jpg" width="110%" height="110%"/>
-        </div>
-        <div>
-        <img src="images/slide3.jpg" width="110%" height="110%"/>
-        </div>
-        <div>
-        <img src="images/slide4.jpg" width="110%" height="110%"/>
-        </div>
-        <div>
-        <img src="images/slide5.jpg" width="110%" height="110%"/>
-        </div>
-        <div>
-        <img src="images/slide6.jpg" width="110%" height="110%"/>
-        </div>
-        <div>
-        <img src="images/slide7.jpg" width="110%" height="110%"/>
-        </div>
+      
+          {fetchlistData()}  
+        
         </Slider>
       </div> 
-       <Grid item xs={12}>
+       {/* <Grid item xs={12}>
         <Button variant="contained" id="calender"><img src="images/calendar.png" class="calenderImg"/>&nbsp;&nbsp;Rent For a Month</Button>
        </Grid>
        <Grid item xs={12}>
         <Button variant="contained" id="shop"><img src="images/shop.png" class="shopImg"/>&nbsp;&nbsp;Rent For a Week</Button>
-       </Grid>
+       </Grid> */}
     </div>
     )
 }

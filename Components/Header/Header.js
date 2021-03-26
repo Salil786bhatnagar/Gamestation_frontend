@@ -247,7 +247,7 @@ export default function Header() {
     return (
             <> 
             
-             <nav class="navbar navbar-expand-lg navbar-dark bg-dark showNav">
+             <nav class="navbar navbar-expand-lg navbar-dark bg-dark showNav" style={{backgroundColor: '#e92645'}}>
                 <a class="navbar-brand" href="#" style={{}}>Gamestation
                 {/* <img style={{width:'160px'}} alt="Ploogl™" src="https://ploogl.com/wp-content/uploads/2020/09/ploogl-logo.png" class="_rw"/> */}
                 </a>

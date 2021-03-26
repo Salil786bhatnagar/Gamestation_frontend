@@ -74,7 +74,7 @@ p#work {
   width: 100%;
   z-index: 1;
   width: 100%;
-  background-color: #ef6c2d  !important;
+  background-color: #e92645  !important;
   /* background-color: #8444BC !important */
 }
 .showMenu ul li {
@@ -87,7 +87,7 @@ p#work {
 }
 div#paper {
   /* background-color: #8444BC; */
-  background-color: rgb(10 67 78 / 43%);
+  background-color: #e85e6b;
   min-height: 700px;
   margin: 0px 0px 0px 0px;
   padding: 40px 0px 40px 0px
@@ -763,3 +763,53 @@ div#gameinfoId {
   bottom: 6px;
 }
 /*  */
+
+/* gameinfo start css */
+h5#gamein_h5Id {
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: currentColor;
+  text-shadow: 4px 15px 15px currentColor;
+}
+img#buyImgId {
+  position: relative;
+  left: 100%;
+  border: 1px solid #800b0b;
+  border-radius: 48px;
+  box-shadow: 8px 12px 13px #653434;
+  cursor: pointer;
+}
+img#rentImgId {
+  border: 1px solid #800b0b;
+  border-radius: 48px;
+  box-shadow: 8px 12px 13px #653434;
+  cursor: pointer;
+}
+
+p#des1 {
+  /* text-align: center; */
+  font-size: 18px;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+h5#BuyGameId {
+  position: relative;
+  left: 140%;
+  padding: 8px 0px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: crimson;
+}
+
+h5#RentGameId {
+  padding: 8px 0px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: crimson;
+  position: relative;
+  left: 30%;
+}
+/* end the css */
+
