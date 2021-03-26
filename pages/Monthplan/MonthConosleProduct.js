@@ -4,44 +4,38 @@ import Footer from '../../Components/Footer';
 import {getData,postData,postDataAndImage,deleteDataAxios,ServerURL} from '../../FetchServices';
 // import {useDispatch, useSelector} from 'react-redux';
 import Link from 'next/link';
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
+import {useDispatch , useSelector} from 'react-redux';
 
 export default function MonthConsoleProduct() {
-    const router = useRouter()
+  const router = useRouter() //// for fetching Id from last page...
   const [getList, setList] = useState([]);
-//   const [getId, setId] = useState('');
-  // const [refresh, setrefresh] = useState();
-//   const dispatch = useDispatch();
+  
 
-//   var cart = useSelector(state=>state.cart);
+  /// ReduX...
+  const dispatch = useDispatch();
 
-//   console.log('.............................',Object.values(cart))
+  // var cart = useSelector(state=>state.cart);
 
-//   var cartitems = Object.values(cart)
+  // console.log('.............................',Object.values(cart))
 
-//   const handleCart=(item)=>{
-//     dispatch({
-//       type: 'Add_Cart',
-//       payload: [item.console_type_id, item]
-//     })
-//     // setrefresh(item)
-//   }
+  // var cartitems = Object.values(cart)
 
-//   const renderItems = () => {
-//     return (
-//       cartitems.map(item => 
-//         {
-//           return (
-//           <>
-//           <p>{item}</p>
-            
-//             {/* <p>{item.description}</p> */}
-//             </>
-//             )
-//         }  
-//       )
-//     )
-//   }
+
+  const AddToCart=(item)=>{    
+    let body={
+      ...item,
+      total:item.offer,
+      saving:parseInt(item.rent - item.offer)
+    }
+    // console.log('consoleProductSaving....',saving)
+    dispatch({
+      type: 'Add_Cart',
+      payload: [item.productid, body]
+    })  
+  }
+
+  
   const fetchData=async(getId)=>{
     console.log('idddddddddddddddd',getId);
     var body = {console_type_id :getId}
@@ -51,6 +45,9 @@ export default function MonthConsoleProduct() {
   }
 
   const fillItems=()=>{
+    var changeNames={
+      
+    }
     return(
     getList.map((item)=>{
       return(
@@ -71,7 +68,7 @@ export default function MonthConsoleProduct() {
                             <Link href={{pathname:"/Monthplan/MonthProductGames",
                                            query : {id : item.productid}
                                            }}>
-                                    <button id="choose1">Choose <i class="vc_btn3-icon entypo-icon entypo-icon-right-thin"></i></button>
+                                    <button id="choose1" onClick={()=>AddToCart(item)}>Choose <i class="vc_btn3-icon entypo-icon entypo-icon-right-thin"></i></button>
                              </Link>
                                   {/* {renderItems()} */}
                             </div>
@@ -105,19 +102,21 @@ export default function MonthConsoleProduct() {
     return (
         <>
         <Header />
+        <div id="monthproductId">
             <div class="alert alert-success showContain"  role="alert" style={{ margin: 0, padding:0, width: '90%', overflow: 'hidden'}}>
-                <h4 class="alert-heading"> PlayStation®4</h4>
+                <h4 class="alert-heading"> Products</h4>
                 <p id="p1">With PS4, gaming becomes a lot more power packed. Ultra-fast processors, high-performance system, real-time game sharing, remote play and lots more makes it the ultimate companion device.</p>
                 <hr id="hr"/>
                 <p class="mb-0">Start by choosing from the available platforms</p>
                
             </div>
 
-            <div class="row" style={{ margin: 0, padding:0, width: '90%', overflow: 'hidden'}}>
+            <div class="row" style={{ margin: 0, padding:0, width: '90%', overflow: 'hidden'}} id="showmonthproductItem">
           
              
              {fillItems()}
              
+            </div>
             </div>
             <Footer/>
         </>

@@ -12,40 +12,26 @@ export default function Rent_month() {
   // const [refresh, setrefresh] = useState();
   const dispatch = useDispatch();
 
-  var cart = useSelector(state=>state.cart);
 
-  console.log('.............................',Object.values(cart))
-
-  var cartitems = Object.values(cart)
-
-  const handleCart=(item)=>{
+  const handleAddConsoleTypeId=(item)=>{
+    console.log('sssssssssssssssssssss',{item})
     dispatch({
-      type: 'Add_Cart',
-      payload: [item.console_type_id, item]
+      type: 'Add_ConsoleId',
+      payload: [item.console_type_id,item.console_type_id]
     })
+    console.log();
+    
     // setrefresh(item)
   }
 
-  const renderItems = () => {
-    return (
-      cartitems.map(item => 
-        {
-          return (
-          <>
-          <p>{item}</p>
-            
-            {/* <p>{item.description}</p> */}
-            </>
-            )
-        }  
-      )
-    )
-  }
+
   const fetchData=async()=>{
     var list = await getData('consoletype/display') ;
-    // console.log('agyayayayayayayaaaaaaa',list)
-    setList(list.result)
+    console.log('agyayayayayayayaaaaaaa',list)
+    setList(list)
   }
+
+
 
   const fillItems=()=>{
     return(
@@ -69,9 +55,8 @@ export default function Rent_month() {
                                 pathname: "/Monthplan/MonthConosleProduct",
                                 query: { id: item.console_type_id }
                                 }}>
-                            <button id="choose1">Choose <i class="vc_btn3-icon entypo-icon entypo-icon-right-thin"></i></button>
-          {/* <a>Home</a> href="/Monthplan/MonthConosleProduct"*/}
-        </Link>
+                            <button id="choose1" onClick={()=>handleAddConsoleTypeId(item)}>Choose <i class="vc_btn3-icon entypo-icon entypo-icon-right-thin"></i></button>
+               </Link>
                                   
                                   {/* {renderItems()} query: { id: "test" }, */}
                             </div>
@@ -84,12 +69,14 @@ export default function Rent_month() {
 
 
   useEffect(()=>{
-    fetchData();
+    fetchData()
   },[])
+
 
     return (
         <>
         <Header />
+        <div id="rentmonthId">
             <div class="alert alert-success showContain"  role="alert" style={{ margin: 0, padding:0, width: '90%', overflow: 'hidden'}}>
                 <h4 class="alert-heading">Hello, Welcome</h4>
                 <p id="p1">Looking to Rent a Gaming Console?</p>
@@ -102,6 +89,7 @@ export default function Rent_month() {
              
              {fillItems()}
              
+            </div>
             </div>
             <Footer/>
         </>

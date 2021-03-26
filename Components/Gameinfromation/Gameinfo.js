@@ -28,10 +28,9 @@ const viewStyle={
     
 }
 export default function Gameinfo() {
-    
     return (
         <>
-        <Header/>
+        <div id="gameinfoId">
           <div class="container-fluid" style={{ margin: 0, padding:0, width: '100%', overflow: 'hidden'}}>   
             <div class="row">
                 <div class="col-md-12"> 
@@ -135,7 +134,8 @@ export default function Gameinfo() {
                    </div> 
                   </div>
                 </div>
-              </div>  
+              </div>
+            </div>    
         </>
     )
 }

@@ -29,6 +29,10 @@ function MyApp({ Component, pageProps }) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css"></link>
+    {/* <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" /> */}
+
+    
     
 </Head>
 
@@ -44,6 +48,9 @@ function MyApp({ Component, pageProps }) {
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    {/* <!-- Menu Toggle Script --> */}
    <script src="js/Togle.js"></script>  
+   
+   {/* <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> */}
    </> 
   )
 }
